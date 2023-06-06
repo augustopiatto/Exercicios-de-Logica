@@ -7,5 +7,5 @@ Feito em Python 3.9. O objetivo é estudar mais sobre lógica de programação e
 ## Testes
 
 Utilizado pytest versão 7.3.1.
-Para se testar, é necessário rodar o comando `pytest -s caminho_do_arquivo`. O -s se faz necessário pois não é utilizado return, e sim print nas resoluções.
+Para se testar, é necessário instalar o pytest na sua virtualenv com `pip install -U pytest` e rodar o comando `pytest caminho_do_arquivo`.
 A primeira vez que se rodar um pytest irá demorar maistempo que o comum, pois estará configurando em sua máquina.

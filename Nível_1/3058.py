@@ -1,6 +1,6 @@
 import pytest
 
-def supermercado(oi):
+def supermercado():
     while True:
         try:
             qtd_supermercados = int(input())
@@ -30,7 +30,8 @@ def supermercado(oi):
     ("4 100.00 500 190.00 1000 200.00 900 110.00 550", "190.00"),
     ("5 46.50 794 25.72 130 66.00 800 22.45 110 38.99 453", "58.56")
 ])
-def test(input, expected):
-    result = supermercado(input)
+def test(input, expected, monkeypatch):
+    monkeypatch.setattr('builtins.input', lambda: input)
+    result = supermercado()
 
     assert result == expected
