@@ -7,7 +7,7 @@ def supermercado():
         except EOFError:
             break
 
-        mais_barato = 10000
+        mais_barato = 10000000000000
         for _ in range(0, qtd_supermercados):
             valores = [t for t in input().split(" ")]
             preco = float(valores[0])
