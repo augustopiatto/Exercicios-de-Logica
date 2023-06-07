@@ -5,6 +5,7 @@ def escada_rolante():
     while True:
         qtd_pessoas = int(input())
         if not qtd_pessoas:
+            #: somente para o teste
             return " ".join(teste_array_num)
 
         t_array = [int(t) for t in input().split(" ")]
@@ -26,7 +27,10 @@ def escada_rolante():
 
 
 @pytest.mark.parametrize("input, expected", [
-    (["1", "5", "2", "12 25", "2", "13 16", "5", "15 20 29 31 50", "0"], "10 20 13 36")
+    (
+        ["1", "5", "2", "12 25", "2", "13 16", "5", "15 20 29 31 50", "0"],
+        "10 20 13 36"
+    )
 ])
 def test(input, expected, monkeypatch):
     inputs = iter(input)
