@@ -1,4 +1,4 @@
-# import pytest
+import pytest
 
 def palavrao():
     while True:
@@ -9,9 +9,16 @@ def palavrao():
 
         print("palavrao" if len(palavra) >= 10 else "palavrinha")
 
-# TODO
+        #: somente para o teste
+        return "palavrao" if len(palavra) >= 10 else "palavrinha"
 
-# pytest.mark.parametrize("input, output", [(["3 2"], "Total: R$ 10.00")])
-# @parametrize(input, output)
-# def test:
-#     palavrao()
+
+@pytest.mark.parametrize("input, expected", [
+    ("paralelepipedo", "palavrao"),
+    ("carro", "palavrinha")
+])
+def test(input, expected, monkeypatch):
+    monkeypatch.setattr('builtins.input', lambda: input)
+    result = palavrao()
+
+    assert result == expected
