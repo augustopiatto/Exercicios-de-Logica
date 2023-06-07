@@ -1,4 +1,4 @@
-# import pytest
+import pytest
 
 def lanche():
     input_array = [int(i) for i in input().split(" ")]
@@ -18,10 +18,17 @@ def lanche():
 
     print(f"Total: R$ {total_decimal}")
 
+    #: somente para o teste
+    return f"Total: R$ {total_decimal}"
 
-# TODO
 
-# pytest.mark.parametrize("input, output", [(["3 2"], "Total: R$ 10.00")])
-# @parametrize(input, output)
-# def test:
-#     lanche()
+@pytest.mark.parametrize("input, expected", [
+    ("3 2", "Total: R$ 10.00"),
+    ("4 3", "Total: R$ 6.00"),
+    ("2 3", "Total: R$ 13.50")
+])
+def test(input, expected, monkeypatch):
+    monkeypatch.setattr('builtins.input', lambda: input)
+    result = lanche()
+
+    assert result == expected
