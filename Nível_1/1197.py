@@ -1,4 +1,4 @@
-# import pytest
+import pytest
 
 def volta_a_faculdade_de_fisica():
     while True:
@@ -14,9 +14,16 @@ def volta_a_faculdade_de_fisica():
                 
         print(deslocamento_final)
 
-# TODO
+        #: somente para o teste
+        return str(deslocamento_final)
 
-# pytest.mark.parametrize("input, output", [(["3 2"], "Total: R$ 10.00")])
-# @parametrize(input, output)
-# def test:
-#     volta_a_faculdade_de_fisica()
+
+@pytest.mark.parametrize("input, expected", [
+    ("0 0", "0"),
+    ("5 12", "120")
+])
+def test(input, expected, monkeypatch):
+    monkeypatch.setattr('builtins.input', lambda: input)
+    result = volta_a_faculdade_de_fisica()
+
+    assert result == expected
