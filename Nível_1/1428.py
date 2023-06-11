@@ -1,14 +1,14 @@
 import pytest
 
 def procurando_nessy():
-    teste_array_num = []
+    teste_list_num = []
     import math
     while True:
         try:
             qtd_testes = int(input())
         except:
             #: somente para o teste
-            return " ".join(teste_array_num)
+            return " ".join(teste_list_num)
 
         for _ in range(0, qtd_testes):
             valores = [t for t in input().split(" ")]
@@ -21,7 +21,7 @@ def procurando_nessy():
             print(resultado)
 
             #: somente para o teste
-            teste_array_num.append(str(resultado))
+            teste_list_num.append(str(resultado))
 
 
 @pytest.mark.parametrize("input, expected", [

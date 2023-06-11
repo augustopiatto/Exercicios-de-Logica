@@ -1,9 +1,9 @@
 import pytest
 
 def lanche():
-    input_array = [int(i) for i in input().split(" ")]
-    codigo = input_array[0]
-    qtd = input_array[1]
+    input_list = [int(i) for i in input().split(" ")]
+    codigo = input_list[0]
+    qtd = input_list[1]
 
     valor_obj = {
         1: float(4),

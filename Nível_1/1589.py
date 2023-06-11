@@ -1,17 +1,17 @@
 import pytest
 
 def bob_conduite():
-    teste_array_num = []
+    teste_list_num = []
     qtd_casos = int(input())
     while True:
         try:
-            r_array = [int(r) for r in input().split(" ")]
+            r_list = [int(r) for r in input().split(" ")]
         except:
             #: somente para o teste
-            return " ".join(teste_array_num)
+            return " ".join(teste_list_num)
 
-        r1 = r_array[0]
-        r2 = r_array[1]
+        r1 = r_list[0]
+        r2 = r_list[1]
         
         resultado = r1 + r2
         qtd_casos -= 1
@@ -19,7 +19,7 @@ def bob_conduite():
         print(resultado)
 
         #: somente para o teste
-        teste_array_num.append(str(resultado))
+        teste_list_num.append(str(resultado))
 
 
 @pytest.mark.parametrize("input, expected", [

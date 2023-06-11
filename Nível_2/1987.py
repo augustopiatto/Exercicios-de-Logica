@@ -1,7 +1,7 @@
 import pytest
 
 def divisibilidade_por_3():
-    teste_array_num = []
+    teste_list_num = []
     while True:
         try:
             _, numero = input().split(" ")
@@ -17,10 +17,10 @@ def divisibilidade_por_3():
         print(resultado)
 
         #: somente para o teste
-        teste_array_num.append(resultado)
+        teste_list_num.append(resultado)
     
     #: somente para o teste
-    return " ".join(teste_array_num)
+    return " ".join(teste_list_num)
 
 
 @pytest.mark.parametrize("input, expected", [

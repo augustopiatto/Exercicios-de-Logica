@@ -3,11 +3,11 @@ import pytest
 def volta_a_faculdade_de_fisica():
     while True:
         try:
-            velocidade_array = [int(t) for t in input().split(" ")]
+            velocidade_list = [int(t) for t in input().split(" ")]
         except EOFError:
             break
-        vel_inicial = velocidade_array[0]
-        tempo_inicial = velocidade_array[1]
+        vel_inicial = velocidade_list[0]
+        tempo_inicial = velocidade_list[1]
 
         # dobro do tempo fornecido
         deslocamento_final = vel_inicial * (2 * tempo_inicial)

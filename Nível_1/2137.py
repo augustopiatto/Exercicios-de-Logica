@@ -1,25 +1,25 @@
 import pytest
 
 def a_biblioteca_do_senhor_severino():
-    teste_array_num = []
+    teste_list_num = []
     while True:
         try:
             qtd_livros = int(input())
         except:
             #: somente para o teste
-            return " ".join(teste_array_num)
+            return " ".join(teste_list_num)
 
-        array_numeros = []
+        list_numeros = []
         for _ in range(0, qtd_livros):
-            array_numeros.append(str(input()))
+            list_numeros.append(str(input()))
 
-        array_numeros.sort()
+        list_numeros.sort()
     
-        for num in array_numeros:
+        for num in list_numeros:
             print(num)
 
         #: somente para o teste
-        teste_array_num.extend(array_numeros)
+        teste_list_num.extend(list_numeros)
 
 
 # fonte: https://pavolkutaj.medium.com/simulating-single-and-multiple-inputs-using-pytest-and-monkeypatch-6968274f7eb9

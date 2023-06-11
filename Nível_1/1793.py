@@ -1,29 +1,29 @@
 import pytest
 
 def escada_rolante():
-    teste_array_num = []
+    teste_list_num = []
     while True:
         qtd_pessoas = int(input())
         if not qtd_pessoas:
             #: somente para o teste
-            return " ".join(teste_array_num)
+            return " ".join(teste_list_num)
 
-        t_array = [int(t) for t in input().split(" ")]
+        t_list = [int(t) for t in input().split(" ")]
 
         tempo_total = 10
         if qtd_pessoas == 1:
             print(tempo_total)
         else:
-            for idx in range(0, len(t_array) - 1):
-                if t_array[idx + 1] - t_array[idx] >= 10:
+            for idx in range(0, len(t_list) - 1):
+                if t_list[idx + 1] - t_list[idx] >= 10:
                     tempo_total += 10
                 else:
-                    tempo_total += (t_array[idx + 1] - t_array[idx])
+                    tempo_total += (t_list[idx + 1] - t_list[idx])
                 
             print(tempo_total)
         
         #: somente para o teste
-        teste_array_num.append(str(tempo_total))
+        teste_list_num.append(str(tempo_total))
 
 
 @pytest.mark.parametrize("input, expected", [
