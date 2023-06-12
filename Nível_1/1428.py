@@ -10,7 +10,7 @@ def procurando_nessy():
             #: somente para o teste
             return " ".join(teste_list_num)
 
-        for _ in range(0, qtd_testes):
+        for _ in range(qtd_testes):
             valores = [t for t in input().split(" ")]
             linhas = int(valores[0])
             colunas = int(valores[1])

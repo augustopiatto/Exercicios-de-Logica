@@ -11,7 +11,7 @@ def time_de_duendes():
         lista_ordenada_duendes = []
         qtd_times = int(qtd_duendes / 3)
 
-        for _ in range(0, qtd_duendes):
+        for _ in range(qtd_duendes):
             nome, idade = input().split()
             lista_ordenada_duendes.append((nome, int(idade)))
         
@@ -20,7 +20,7 @@ def time_de_duendes():
             key = lambda x: (-x[1], x[0]),
         )
 
-        for num in range(0, qtd_times):
+        for num in range(qtd_times):
             time = f"Time {num + 1}"
             print(f"Time {num + 1}")
 

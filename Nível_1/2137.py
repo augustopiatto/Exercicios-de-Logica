@@ -10,7 +10,7 @@ def a_biblioteca_do_senhor_severino():
             return " ".join(teste_list_num)
 
         list_numeros = []
-        for _ in range(0, qtd_livros):
+        for _ in range(qtd_livros):
             list_numeros.append(str(input()))
 
         list_numeros.sort()

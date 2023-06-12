@@ -14,7 +14,7 @@ def escada_rolante():
         if qtd_pessoas == 1:
             print(tempo_total)
         else:
-            for idx in range(0, len(t_list) - 1):
+            for idx in range(len(t_list) - 1):
                 if t_list[idx + 1] - t_list[idx] >= 10:
                     tempo_total += 10
                 else:

@@ -8,7 +8,7 @@ def supermercado():
             break
 
         mais_barato = 10000000000000
-        for _ in range(0, qtd_supermercados):
+        for _ in range(qtd_supermercados):
             valores = [t for t in input().split(" ")]
             preco = float(valores[0])
             gramas = float(valores[1])
