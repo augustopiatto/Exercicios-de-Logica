@@ -46,15 +46,15 @@ def time_de_duendes():
     #: somente para o teste
     return " ".join(teste_list_num)
 
-def ordena_alfabeticamente(pair1, pair2):
-    number1, word1 = pair1
-    number2, word2 = pair2
-    if number1 == number2:
-        if word1 < word2:
+def ordena_alfabeticamente(tupla_1, tupla_2):
+    idade_1, nome_1 = tupla_1
+    idade_2, nome_2 = tupla_2
+    if idade_1 == idade_2:
+        if nome_1 < nome_2:
             return -1
         else:
             return 1
-    if number1 < number2:
+    if idade_1 < idade_2:
         return -1
     else:
         return 1
