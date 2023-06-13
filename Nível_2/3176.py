@@ -1,63 +1,64 @@
 import pytest
 
+def organiza_times(qtd_duendes, qtd_times):
+    lista_ordenada_duendes = []
+    for _ in range(qtd_duendes):
+        nome, idade = input().split()
+        lista_ordenada_duendes.append((nome, int(idade)))
+    
+    lista_ordenada_duendes = sorted(
+        lista_ordenada_duendes,
+        key = lambda x: (-x[1], x[0]),
+    )
+
+    times = [[] for _ in range(qtd_times)]
+
+    for i in range(0, qtd_duendes, qtd_times):
+        for j in range(qtd_times):
+            times[j].append(lista_ordenada_duendes[i + j])
+
+    return times
+
+
+def retorno_metodo(times):
+    resultado_pytest = []
+    for i in range(len(times)):
+        contador = 0
+        time = f'Time {i + 1}'
+        print(time)
+
+        #: somente para o teste
+        resultado_pytest.append(time)
+
+        for membro in times[i]:
+            contador += 1
+            resultado = f'{membro[0]} {membro[1]}'
+            if contador == 3:
+                #: Esse cara aqui é pra pular a linha de um jeito que o BeeCrowd entenda
+                #: Se pular em um print separado, da "Presentation Error"
+                print(f"{resultado}\n")
+            else:
+                print(resultado)
+
+            #: somente para o teste
+            resultado_pytest.append(resultado)
+
+    #: somente para o teste
+    return " ".join(resultado_pytest)
+
+
 def time_de_duendes():
-    teste_list_num = []
     while True:
         try:
             qtd_duendes = int(input())
         except:
             break
 
-        lista_ordenada_duendes = []
         qtd_times = int(qtd_duendes / 3)
 
-        for _ in range(qtd_duendes):
-            nome, idade = input().split()
-            lista_ordenada_duendes.append((nome, int(idade)))
-        
-        lista_ordenada_duendes = sorted(
-            lista_ordenada_duendes,
-            key = lambda x: (-x[1], x[0]),
-        )
+        times = organiza_times(qtd_duendes, qtd_times)
 
-        for num in range(qtd_times):
-            time = f"Time {num + 1}"
-            print(f"Time {num + 1}")
-
-            #: somente para o teste
-            teste_list_num.append(time)
-            contador = 0
-
-            for index in range(num, len(lista_ordenada_duendes), qtd_times):
-                contador += 1
-                nome_duende = lista_ordenada_duendes[index][0]
-                idade_duende = lista_ordenada_duendes[index][1]
-                resultado = f"{nome_duende} {idade_duende}"
-                if contador == 3:
-                    #: Esse cara aqui é pra pular a linha de um jeito que o BeeCrowd entenda
-                    #: Se pular em um print separado, da "Presentation Error"
-                    print(f"{resultado}\n")
-                else:
-                    print(f"{resultado}")
-
-                #: somente para o teste
-                teste_list_num.append(resultado)
-    
-    #: somente para o teste
-    return " ".join(teste_list_num)
-
-def ordena_alfabeticamente(tupla_1, tupla_2):
-    idade_1, nome_1 = tupla_1
-    idade_2, nome_2 = tupla_2
-    if idade_1 == idade_2:
-        if nome_1 < nome_2:
-            return -1
-        else:
-            return 1
-    if idade_1 < idade_2:
-        return -1
-    else:
-        return 1
+        return retorno_metodo(times)
 
 
 @pytest.mark.parametrize("input, expected", [
