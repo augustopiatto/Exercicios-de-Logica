@@ -1,5 +1,6 @@
 import pytest
 
+
 def volta_a_faculdade_de_fisica():
     while True:
         try:

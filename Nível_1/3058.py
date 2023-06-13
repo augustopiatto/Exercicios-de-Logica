@@ -1,5 +1,6 @@
 import pytest
 
+
 def supermercado():
     while True:
         try:

@@ -1,5 +1,6 @@
 import pytest
 
+
 def a_mensagem_de_will():
     teste_list_num = []
     while True:

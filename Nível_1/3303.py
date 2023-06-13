@@ -1,5 +1,6 @@
 import pytest
 
+
 def palavrao():
     while True:
         try:

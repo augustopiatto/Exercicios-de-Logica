@@ -1,5 +1,6 @@
 import pytest
 
+
 def escada_rolante():
     teste_list_num = []
     while True:

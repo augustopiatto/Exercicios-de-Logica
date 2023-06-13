@@ -1,5 +1,6 @@
 import pytest
 
+
 def media_2():
     while True:
         try:

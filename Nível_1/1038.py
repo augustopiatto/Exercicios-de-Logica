@@ -1,5 +1,6 @@
 import pytest
 
+
 def lanche():
     input_list = [int(i) for i in input().split(" ")]
     codigo = input_list[0]

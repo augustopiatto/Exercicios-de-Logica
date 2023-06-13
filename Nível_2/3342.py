@@ -1,5 +1,6 @@
 import pytest
 
+
 def keanu():
     import math
     while True:

@@ -1,5 +1,6 @@
 import pytest
 
+
 def bob_conduite():
     teste_list_num = []
     qtd_casos = int(input())

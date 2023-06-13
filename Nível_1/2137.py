@@ -1,5 +1,6 @@
 import pytest
 
+
 def a_biblioteca_do_senhor_severino():
     teste_list_num = []
     while True:

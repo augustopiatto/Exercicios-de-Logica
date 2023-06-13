@@ -1,5 +1,6 @@
 import pytest
 
+
 def organiza_times(qtd_duendes, qtd_times):
     lista_ordenada_duendes = []
     for _ in range(qtd_duendes):

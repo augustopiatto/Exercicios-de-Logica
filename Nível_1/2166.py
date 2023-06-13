@@ -1,5 +1,6 @@
 import pytest
 
+
 def raiz_quadrada_de_2():
     while True:
         try:

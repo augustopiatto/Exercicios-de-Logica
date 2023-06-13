@@ -1,5 +1,6 @@
 import pytest
 
+
 def numero_primo(numero):
     from math import sqrt
     prime_flag = 0

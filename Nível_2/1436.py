@@ -1,5 +1,6 @@
 import pytest
 
+
 def jogo_do_tijolo():
     import math
     teste_list_num = []

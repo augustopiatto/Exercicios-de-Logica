@@ -1,5 +1,6 @@
 import pytest
 
+
 def divisibilidade_por_3():
     teste_list_num = []
     while True:
