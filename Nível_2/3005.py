@@ -44,6 +44,7 @@ def empilha(d1, d2):
     return False
 
 
+#: Tem que tirar o nome desse método quando for colar no BeeCrowd
 def pilhas_de_paralelepipedo():
     teste_list_num = []
     while True:

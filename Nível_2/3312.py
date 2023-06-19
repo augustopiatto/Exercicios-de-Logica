@@ -27,6 +27,7 @@ def fatorial(numero):
     return fat
  
 
+#: Tem que tirar o nome desse método quando for colar no BeeCrowd
 def imberbe_matematico():
     teste_list_num = []
     while True:
