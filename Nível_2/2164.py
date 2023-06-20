@@ -9,6 +9,7 @@ def formula_de_binet(numero):
 
     return float(num)
 
+
 #: Tem que tirar o nome desse método quando for colar no BeeCrowd
 def fibonacci_rapido():
     while True:

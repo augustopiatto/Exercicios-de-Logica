@@ -23,6 +23,7 @@ def menor_num_primo(numero):
 
     return menor_num_primo(numero - 1)
 
+
 #: Tem que tirar o nome desse método quando for colar no BeeCrowd
 def diversao_dos_alunos():
     while True:
