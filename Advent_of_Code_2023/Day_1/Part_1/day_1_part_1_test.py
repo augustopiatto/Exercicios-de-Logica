@@ -1,8 +1,8 @@
-from day_1_inputs import inputs
-from day_1_solution import trebuchet
+from Advent_of_Code_2023.Day_1.day_1_inputs import inputs
+from Advent_of_Code_2023.Day_1.Part_1.day_1_part_1_solution import trebuchet
 
 
-def test_day_1_simple_test():
+def test_day_1_part_1_simple_test():
     simple_inputs = [
         "1abc2",
         "pqr3stu8vwx",
@@ -15,7 +15,7 @@ def test_day_1_simple_test():
     assert sum == 142
 
 
-def test_get_day_1_answer():
+def test_get_day_1_part_1_answer():
     sum = trebuchet(inputs)
 
     # resposta descoberta após envio no site
