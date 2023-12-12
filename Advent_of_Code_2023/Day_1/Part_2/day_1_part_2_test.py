@@ -15,11 +15,11 @@ def test_day_1_part_2_simple_test():
 
     sum = trebuchet(simple_inputs)
 
-    assert sum == 142
+    assert sum == 281
 
 
 def test_get_day_1_part_2_answer():
     sum = trebuchet(inputs)
 
     # resposta descoberta após envio no site
-    assert sum == 1
+    assert sum == 54277

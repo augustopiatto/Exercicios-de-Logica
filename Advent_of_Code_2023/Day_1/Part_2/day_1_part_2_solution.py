@@ -1,14 +1,32 @@
-import re
+from string import digits
 
+
+word_to_number = {
+    "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"
+}
 
 def extract_numbers(string_with_numbers):
-    numbers_pattern = re.compile(r'\d')
-    numbers_found = numbers_pattern.findall(string_with_numbers)
-    first_number = numbers_found[0]
-    last_number = numbers_found[-1]
-    final_number = int(first_number + last_number)
+    numbers = []
+    for digit in digits:
+        idx = string_with_numbers.find(digit)
+        if idx != -1:
+            numbers.append((idx, digit))
+        idx = string_with_numbers.rfind(digit)
+        if idx != -1:
+            numbers.append((idx, digit))
 
-    return final_number
+    for digit, value in word_to_number.items():
+        idx = string_with_numbers.find(digit)
+        if idx != -1:
+            numbers.append((idx, value))
+        idx = string_with_numbers.rfind(digit)
+        if idx != -1:
+            numbers.append((idx, value))
+
+    numbers.sort()
+    result = int(f"{numbers[0][1]}{numbers[-1][1]}")
+
+    return result
 
 
 def trebuchet(inputs):
