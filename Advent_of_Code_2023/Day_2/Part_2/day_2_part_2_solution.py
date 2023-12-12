@@ -1,20 +1,18 @@
 import re
 
 
-max_existing_conundrum = {"blue": 14, "red": 12, "green": 13}
-
-
-def check_if_possible(color, list):
+def fewest_num(list):
+    highest_num = 0
     for number in list:
-        if int(number) > max_existing_conundrum[color]:
-            print("Impossível, número maior do que existe")
-            return False
+        num = int(number)
+        if num > highest_num:
+            highest_num = num
     
-    return True
+    return highest_num
 
 
 def cube_conundrum(inputs):
-    id_sum = 0
+    sum = 0
     for game in inputs:
         pattern = r'Game\s+(\d+)\s*:'
         match = re.search(pattern, game)
@@ -27,13 +25,12 @@ def cube_conundrum(inputs):
             red_matches = re.findall(red_pattern, game)
             green_matches = re.findall(green_pattern, game)
 
-            blue_possible = check_if_possible("blue", blue_matches)
-            red_possible = check_if_possible("red", red_matches)
-            green_possible = check_if_possible("green", green_matches)
+            blue_num = fewest_num(blue_matches)
+            red_num = fewest_num(red_matches)
+            green_num = fewest_num(green_matches)
 
-            if blue_possible and red_possible and green_possible:
-                id_sum += game_id
+            sum += (blue_num * red_num * green_num)
         else:
             raise ValueError("Não existe a palavra 'Game' nesta linha")
 
-    return id_sum
+    return sum
