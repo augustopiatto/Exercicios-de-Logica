@@ -12,16 +12,15 @@ def test_day_3_part_1_simple_test():
 ..592.....
 ......755.
 ...$.*....
-.664.598..
-"""
+.664.598.."""
 
     sum = gear_ratios(simple_inputs)
 
-    assert sum == None
+    assert sum == 4361
 
 
 def test_get_day_3_part_1_answer():
     sum = gear_ratios(inputs)
 
     # resposta descoberta após envio no site
-    assert sum == None
+    assert sum == 560670

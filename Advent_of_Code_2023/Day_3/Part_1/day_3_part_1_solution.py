@@ -1,45 +1,73 @@
 def _check_if_dot(char):
-    if char == ".":
-        return False
+    return char == "."
 
 
 def _check_if_symbol(char):
-    try:
-        int(char)
-    except ValueError:
+    symbols = {'#', '$', '%', '&', '*', '+', '-', '/', '=', '@'}
+    if char in symbols:
         return True
+    # try:
+    #     int(char)
+    # except ValueError:
+    #     return True
+
+    return False
 
 
-def get_symbols_positions(inputs):
-    symbol_dict = {}
+def convert_to_position_dict(inputs):
+    position_dict = {}
     for pos_x, line in enumerate(inputs):
         for pos_y, char in enumerate(line):
-            _ = _check_if_dot(char)
-            is_symbol = _check_if_symbol(char)
-            if is_symbol:
-                symbol_dict[(pos_x, pos_y)] = True
+            position_dict[(pos_x, pos_y)] = char
     
-    return symbol_dict
+    return position_dict
 
 
-def check_adjacent(x, y):
-    # continuar aqui amanhã
-    return
+def check_adjacent(position_dict, x, y):
+    adjacent_positions = [
+        (-1, -1), (0, -1), (1, -1),
+        (-1, 0), (1, 0),
+        (-1, 1), (0, 1), (1, 1),
+    ]
+
+    for position in adjacent_positions:
+        try:
+            checked_value = position_dict[(x + position[0], y + position[1])]
+        except KeyError:
+            continue
+
+        if _check_if_symbol(checked_value):
+            return True
+
+    return False
 
 
 def gear_ratios(inputs):
+    num_str = ""
+    sum = 0
+    part_numbers = []
+    is_part_number = False
     lines = inputs.splitlines()
-    symbol_dict = get_symbols_positions(lines)
+    position_dict = convert_to_position_dict(lines)
     for pos_x, line in enumerate(lines):
         for pos_y, char in enumerate(line):
-            num_str = ""
             is_dot = _check_if_dot(char)
             is_symbol = _check_if_symbol(char)
-            if is_dot:
+            if (is_dot or is_symbol) and num_str != "":
+                if is_part_number:
+                    part_numbers.append(int(num_str))
+                    is_part_number = False
                 num_str = ""
                 continue
-            if not is_symbol:
+            elif not is_dot and not is_symbol:
                 num_str += char
-                check_adjacent(pos_x, pos_y)
+                any_adjacent_symbol = check_adjacent(position_dict, pos_x, pos_y)
+                if any_adjacent_symbol:
+                    is_part_number = True
+                else:
+                    continue
 
-    return "qualquer coisa, pra quebrar o teste"
+    for number in part_numbers:
+        sum += number
+
+    return sum
