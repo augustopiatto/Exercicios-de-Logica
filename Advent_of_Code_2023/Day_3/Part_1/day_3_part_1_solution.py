@@ -6,18 +6,14 @@ def _check_if_symbol(char):
     symbols = {'#', '$', '%', '&', '*', '+', '-', '/', '=', '@'}
     if char in symbols:
         return True
-    # try:
-    #     int(char)
-    # except ValueError:
-    #     return True
 
     return False
 
 
 def convert_to_position_dict(inputs):
     position_dict = {}
-    for pos_x, line in enumerate(inputs):
-        for pos_y, char in enumerate(line):
+    for pos_y, line in enumerate(inputs):
+        for pos_x, char in enumerate(line):
             position_dict[(pos_x, pos_y)] = char
     
     return position_dict
@@ -49,8 +45,8 @@ def gear_ratios(inputs):
     is_part_number = False
     lines = inputs.splitlines()
     position_dict = convert_to_position_dict(lines)
-    for pos_x, line in enumerate(lines):
-        for pos_y, char in enumerate(line):
+    for pos_y, line in enumerate(lines):
+        for pos_x, char in enumerate(line):
             is_dot = _check_if_dot(char)
             is_symbol = _check_if_symbol(char)
             if (is_dot or is_symbol) and num_str != "":
